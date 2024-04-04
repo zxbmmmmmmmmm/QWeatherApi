@@ -28,7 +28,7 @@ namespace QWeatherApi.ApiContracts
             var result = base.GenerateQuery(option);
             if (Request is QGeolocationRequestByLocation byLocation)
             {
-                result.Add("location", $"{byLocation.Lat},{byLocation.Lon}");
+                result.Add("location", $"{byLocation.Lon},{byLocation.Lat}");
             }
             else if (Request is QGeolocationRequestByName byName)
             {
