@@ -7,7 +7,7 @@ using QWeatherApi.Bases;
 
 namespace QWeatherApi.ApiContracts;
 
-public sealed class WeatherHourlyApi: QApiContractBase<WeatherHourlyResponse>
+public class WeatherHourlyApi: QApiContractBase<WeatherHourlyResponse>
 {
     public override HttpMethod Method => HttpMethod.Get;
     public override string Path => ApiConstants.Weather.HourlyForecast24H;

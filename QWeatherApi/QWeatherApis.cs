@@ -14,6 +14,5 @@ public static class QWeatherApis
     public static TyphoonListApi TyphoonListApi => new();
     public static TyphoonTrackApi TyphoonTrackApi => new();
     public static TyphoonForecastApi TyphoonForecastApi => new();
-
-
+    public static GridWeatherNowApi GridWeatherNowApi => new();
 }

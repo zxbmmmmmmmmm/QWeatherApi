@@ -7,6 +7,11 @@ public static class ApiConstants
 
     public static class Weather
     {
+        public const string GridNow = "/v7/grid-weather/now";
+        public const string GridDailyForecast3D = "/v7/grid-weather/3d";
+        public const string GridDailyForecast7D = "/v7/grid-weather/7d";
+        public const string GridHourlyForecast24H = "/v7/grid-weather/24h";
+        public const string GridHourlyForecast72H = "/v7/grid-weather/72h";
         public const string Now = "/v7/weather/now";
         public const string DailyForecast3D = "/v7/weather/3d";
         public const string DailyForecast7D = "/v7/weather/7d";

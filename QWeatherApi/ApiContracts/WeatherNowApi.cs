@@ -5,7 +5,7 @@ using QWeatherApi.Bases;
 
 namespace QWeatherApi.ApiContracts;
 
-public sealed class WeatherNowApi: QApiContractBase<WeatherNowResponse>
+public class WeatherNowApi: QApiContractBase<WeatherNowResponse>
 {
     public override HttpMethod Method => HttpMethod.Get;
     public override string Path => ApiConstants.Weather.Now;
