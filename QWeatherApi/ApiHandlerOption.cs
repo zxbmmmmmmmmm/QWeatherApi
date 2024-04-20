@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using QWeatherApi.Helpers;
+using System.Collections.Generic;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -17,6 +18,7 @@ public class ApiHandlerOption
             NumberHandling = JsonNumberHandling.WriteAsString |
                              JsonNumberHandling.AllowReadingFromString,
             AllowTrailingCommas = true,
+            Converters = {new DateTimeConverterUsingDateTimeParse()}
         };
     public string Domain{ get; set; }
 }
