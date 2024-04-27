@@ -43,7 +43,8 @@ public abstract class QApiContractBase<TResquest,TResponse> : ApiContractBase<TR
         }
         else
         {
-            query.Add("key", option.Token);
+            if(option.Token is not null)
+                query.Add("key", option.Token);
             sb.Append(query.Sort());
         }
 

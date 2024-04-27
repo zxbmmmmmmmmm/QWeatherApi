@@ -22,7 +22,7 @@ namespace QWeatherApi.Helpers
             var newCollection = HttpUtility.ParseQueryString(string.Empty);
             foreach (var key in orderedKeys)
             {
-                foreach (var val in collection.GetValues(key)!.Select(x => x).OrderBy(x => x).ToArray())
+                foreach (var val in collection.GetValues(key)?.Select(x => x)?.OrderBy(x => x)?.ToArray())
                 {
                     newCollection.Add(key, val);
                 }
