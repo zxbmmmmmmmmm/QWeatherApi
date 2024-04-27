@@ -46,6 +46,20 @@ namespace QWeatherApi.Tests
             var result = await handler.RequestAsync(QWeatherApis.WeatherDailyApi, request, option);
             Assert.IsNotNull(result.DailyForecasts[0].Sunrise);
         }
+
+        [TestMethod]
+        public async Task WeatherDailyTest2()
+        {
+            var handler = new QWeatherApiHandler();
+            var option = new ApiHandlerOption
+            {
+                Domain = "devapi.qweather.com",
+                Token = _key
+            };
+            var request = new QWeatherRequest(-75.39, 43.04);
+            var result = await handler.RequestAsync(QWeatherApis.WeatherDailyApi, request, option);
+            Assert.IsNotNull(result.DailyForecasts[0].Sunrise);
+        }
     }
     
 }
