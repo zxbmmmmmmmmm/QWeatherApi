@@ -48,6 +48,14 @@ namespace QWeatherApi.ApiContracts
             public int WindSpeed { get; set; }
 
             [JsonPropertyName("moveSpeed")]
+            private string _moveSpeed
+            {
+                set
+                {
+                    int.TryParse(value, out var result);
+                    MoveSpeed = result;
+                }
+            }
             public int? MoveSpeed { get; set; }
 
             [JsonPropertyName("moveDir")]
