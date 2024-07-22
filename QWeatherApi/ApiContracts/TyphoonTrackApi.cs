@@ -69,7 +69,16 @@ public sealed class TyphoonTrackItem
     public string MoveDir { get; set; }
 
     [JsonPropertyName("move360")]
-    public int Move360 { get; set; }
+    private string _move360
+    {
+        set 
+        {
+            int.TryParse(value, out var result); 
+            Move360 = result;
+        }
+    }
+
+    public int? Move360 { get; set; }
 
     [JsonPropertyName("windRadius30")]
     public WindRadiusItem WindRadius7 { get; set; }
