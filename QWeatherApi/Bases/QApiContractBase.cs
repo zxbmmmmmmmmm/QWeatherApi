@@ -74,10 +74,13 @@ public abstract class QApiContractBase<TResquest,TResponse> : ApiContractBase<TR
         var buffer = await response.Content.ReadAsByteArrayAsync();
         if (buffer is null || buffer.Length == 0) throw new DecoderFallbackException("返回体预读取错误");
         var str = Encoding.UTF8.GetString(buffer);
-        
 
-        var ret = (JsonSerializer.Deserialize(str, typeof(TResponse), SourceGenerationContext.Default) as TResponse);
-        if (ret is null) throw new JsonException("返回 JSON 解析为空");
+        var serializerOptions = new JsonSerializerOptions(option.JsonSerializerOptions) {
+            TypeInfoResolver = SourceGenerationContext.Default
+        };
+
+
+        if (JsonSerializer.Deserialize(str, typeof(TResponse), serializerOptions) is not TResponse ret) throw new JsonException("返回 JSON 解析为空");
         return ret;
     }
 
