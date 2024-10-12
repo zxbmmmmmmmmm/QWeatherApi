@@ -49,6 +49,21 @@ namespace QWeatherApi.Tests
         }
 
         [TestMethod]
+        public async Task WeatherDailyTest_Lang()
+        {
+            var handler = new QWeatherApiHandler();
+            var option = new ApiHandlerOption
+            {
+                Domain = "devapi.qweather.com",
+                Language = "fr",
+                Token = _devApiKey
+            };
+            var request = new QWeatherRequest(119.9, 28.4);
+            var result = await handler.RequestAsync(QWeatherApis.WeatherDailyApi, request, option);
+            Assert.IsNotNull(result.DailyForecasts[0].Sunrise);
+        }
+
+        [TestMethod]
         public async Task WeatherDailyTest2()
         {
             var handler = new QWeatherApiHandler();

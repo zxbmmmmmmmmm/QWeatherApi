@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Specialized;
+using System.Globalization;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -15,7 +16,7 @@ public abstract class QApiContractBase<TResponse>:QApiContractBase<QWeatherReque
     protected override NameValueCollection GenerateQuery(ApiHandlerOption option)
     {
         var result = base.GenerateQuery(option);
-        result.Add("location", $"{Request.Lon},{Request.Lat}");
+        result.Add("location", $"{Request.Lon.ToString(CultureInfo.InvariantCulture)},{Request.Lat.ToString(CultureInfo.InvariantCulture)}");
         return result;
     }
 }
