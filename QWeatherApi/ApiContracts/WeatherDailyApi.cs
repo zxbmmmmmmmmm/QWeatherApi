@@ -10,15 +10,10 @@ namespace QWeatherApi.ApiContracts;
 public class WeatherDailyApi:QApiContractBase<WeatherDailyResponse>
 {
     public override HttpMethod Method => HttpMethod.Get;
-    public override string Path => ApiConstants.Weather.DailyForecast7D;
+    public override string Path => ApiConstants.Weather.DailyForecast30D;
     public override async Task<HttpRequestMessage> GenerateRequestMessageAsync(ApiHandlerOption option)
     {
         var res = await base.GenerateRequestMessageAsync(option);
-        if(option.Domain is "api.qweather.com")
-        {
-            var str = res.RequestUri.ToString();
-            res.RequestUri = new System.Uri(str.Replace(Path, ApiConstants.Weather.DailyForecast30D));
-        }
         return res;
     }
 }
