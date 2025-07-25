@@ -20,7 +20,7 @@ namespace QWeatherApi.ApiContracts
         public override async Task<HttpRequestMessage> GenerateRequestMessageAsync(ApiHandlerOption option)
         {
             var result = await base.GenerateRequestMessageAsync(option);
-            result.RequestUri = new Uri(result.RequestUri.ToString().Replace("/api.qweather.com", "/geoapi.qweather.com").Replace("/devapi.qweather.com", "/geoapi.qweather.com"));
+            result.RequestUri = new Uri(result.RequestUri.ToString().Replace("/v2/", "/geo/v2/"));
             return result;
         }
         protected override NameValueCollection GenerateQuery(ApiHandlerOption option)
