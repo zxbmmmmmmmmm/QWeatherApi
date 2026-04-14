@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="QWeatherApi.Tests/QWeatherApi.Tests.csproj" />
+  <Project Path="QWeatherApi/QWeatherApi.csproj" />
+</Solution>
