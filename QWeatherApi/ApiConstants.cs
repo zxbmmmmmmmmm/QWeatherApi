@@ -25,7 +25,7 @@ public static class ApiConstants
         public const string WeatherIndices1D = "/v7/indices/1d";
         public const string WeatherIndices3D = "/v7/indices/3d";
         public const string MinutelyPrecipitation = "/v7/minutely/5m";
-        public const string AirCondition = "/v7/air/now";
+        public const string AirCondition = "/airquality/v1/current";
         public const string TyphoonTrack = "/v7/tropical/storm-track";
         public const string TyphoonList = "/v7/tropical/storm-list";
         public const string TyphoonForecast = "/v7/tropical/storm-forecast";

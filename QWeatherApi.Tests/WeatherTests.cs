@@ -12,7 +12,7 @@ namespace QWeatherApi.Tests
             var handler = new QWeatherApiHandler();
             var option = new ApiHandlerOption
             {
-                Domain = "devapi.qweather.com",
+                Domain = Domain,
                 Token = _devApiKey
             };
             var request = new QWeatherRequest(119.9, 28.4);
@@ -25,7 +25,7 @@ namespace QWeatherApi.Tests
             var handler = new QWeatherApiHandler();
             var option = new ApiHandlerOption
             {
-                Domain = "devapi.qweather.com",
+                Domain = Domain,
                 Token = _devApiKey
             };
             var request = new QWeatherRequest(119.9, 28.4);
@@ -40,7 +40,7 @@ namespace QWeatherApi.Tests
             var handler = new QWeatherApiHandler();
             var option = new ApiHandlerOption
             {
-                Domain = "devapi.qweather.com",
+                Domain = Domain,
                 Token = _devApiKey
             };
             var request = new QWeatherRequest(119.9, 28.4);
@@ -54,7 +54,7 @@ namespace QWeatherApi.Tests
             var handler = new QWeatherApiHandler();
             var option = new ApiHandlerOption
             {
-                Domain = "devapi.qweather.com",
+                Domain = Domain,
                 Language = "fr",
                 Token = _devApiKey
             };
@@ -69,7 +69,7 @@ namespace QWeatherApi.Tests
             var handler = new QWeatherApiHandler();
             var option = new ApiHandlerOption
             {
-                Domain = "devapi.qweather.com",
+                Domain = Domain,
                 Token = _devApiKey
             };
             var request = new QWeatherRequest(-75.39, 43.04);
@@ -83,8 +83,8 @@ namespace QWeatherApi.Tests
             var handler = new QWeatherApiHandler();
             var option = new ApiHandlerOption
             {
-                Domain = "api.qweather.com",
-                Token = _apiKey
+                Domain = Domain,
+                Token = _devApiKey
             };
             var request = new QWeatherRequest(-75.39, 43.04);
             var list = await handler.RequestAsync(QWeatherApis.TyphoonListApi, request, option);
@@ -103,11 +103,25 @@ namespace QWeatherApi.Tests
             var handler = new QWeatherApiHandler();
             var option = new ApiHandlerOption
             {
-                Domain = "devapi.qweather.com",
+                Domain = Domain,
             };
             var request = new QWeatherRequest(-75.39, 43.04);
             var result = await handler.RequestAsync(QWeatherApis.WeatherDailyApi, request, option);
             Assert.IsNotNull(result.Code == "401");
+        }
+
+        [TestMethod]
+        public async Task AirConditionTest()
+        {
+            var handler = new QWeatherApiHandler();
+            var option = new ApiHandlerOption
+            {
+                Domain = Domain,
+                Token = _devApiKey
+            };
+            var request = new QWeatherRequest(116.4, 39.9);
+            var result = await handler.RequestAsync(QWeatherApis.AirConditionApi, request, option);
+            Assert.IsNotNull(result.Indexes[0].Aqi);
         }
     }
     
